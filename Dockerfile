@@ -1,6 +1,6 @@
 ARG BASE_IMAGE=ubuntu:22.04
 ARG GRPC_BASE_IMAGE=${BASE_IMAGE}
-ARG INTEL_BASE_IMAGE=${BASE_IMAGE}
+ARG INTEL_BASE_IMAGE=${BASEص_IMAGE}
 
 FROM ${BASE_IMAGE} AS requirements
 
@@ -248,8 +248,6 @@ COPY ./Makefile .
 COPY ./backend ./backend
 COPY ./go.mod .
 COPY ./go.sum .
-COPY ./.git ./.git
-
 # Some of the Go backends use libs from the main src, we could further optimize the caching by building the CPP backends before here
 COPY ./pkg/grpc ./pkg/grpc
 COPY ./pkg/utils ./pkg/utils
